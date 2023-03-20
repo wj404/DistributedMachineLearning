@@ -1,0 +1,1158 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.2 集合通信 · 分布式机器学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="爱学习的草履虫">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-lou/lou.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="分布式架构.html" />
+    
+    
+    <link rel="prev" href="点对点通信.html" />
+    
+
+    </head>
+    <body>
+         
+
+<div class="book">
+  <div class="header-inner">
+    <!-- LOGO -->
+    <div class="logo" onmousedown="onMoseDown()"></div>
+    <span class="title"></span>
+
+    <!-- Search -->
+    
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+
+    <!-- Nav -->
+    <ul class="header-nav">
+      
+    </ul>
+  </div>
+
+  <div class="book-summary">
+    <div class="book-summary-title">文档目录</div>
+     
+    <nav role="navigation">
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    分布式机器学习介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    一、有关通信的预备知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="点对点通信.html">
+            
+                <a href="点对点通信.html">
+            
+                    
+                    1.1 点对点通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="集合通信.html">
+            
+                <a href="集合通信.html">
+            
+                    
+                    1.2 集合通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="分布式架构.html">
+            
+                <a href="分布式架构.html">
+            
+                    
+                    1.3 分布式架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="torch_distributed.html">
+            
+                <a href="torch_distributed.html">
+            
+                    
+                    1.4 分布式通信包 - torch.distributed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="PyTorch进程通信.html">
+            
+                <a href="PyTorch进程通信.html">
+            
+                    
+                    1.5 Pytorch多进程通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    二、分布式深度学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/单机分布式训练MINIST.html">
+            
+                <a href="../chapter2/单机分布式训练MINIST.html">
+            
+                    
+                    2.1 单机分布式训练神经网络案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/PyTorch-ps.html">
+            
+                <a href="../chapter2/PyTorch-ps.html">
+            
+                    
+                    2.2 PyTorch Parameters Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/Flower联邦学习.html">
+            
+                <a href="../chapter2/Flower联邦学习.html">
+            
+                    
+                    2.3 Flower联邦学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    三、Spark分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter3/spark的安装.html">
+            
+                <a href="../chapter3/spark的安装.html">
+            
+                    
+                    3.1 spark的安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chapter3/spark单机版机器学习示例.html">
+            
+                <a href="../chapter3/spark单机版机器学习示例.html">
+            
+                    
+                    3.2 spark单机版机器学习示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chapter3/spark集群的搭建.html">
+            
+                <a href="../chapter3/spark集群的搭建.html">
+            
+                    
+                    3.3  spark集群的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../chapter3/集群机器学习任务.html">
+            
+                <a href="../chapter3/集群机器学习任务.html">
+            
+                    
+                    3.4  集群机器学习任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../chapter3/Spark运行原理.html">
+            
+                <a href="../chapter3/Spark运行原理.html">
+            
+                    
+                    3.5  Spark运行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../chapter3/Spark中ml和mllib的区别.html">
+            
+                <a href="../chapter3/Spark中ml和mllib的区别.html">
+            
+                    
+                    3.6 Spark中ml和mllib的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../chapter3/Spark中Shuffle操作.html">
+            
+                <a href="../chapter3/Spark中Shuffle操作.html">
+            
+                    
+                    3.7 Spark中Shuffle操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../chapter3/Spark中的广播机制.html">
+            
+                <a href="../chapter3/Spark中的广播机制.html">
+            
+                    
+                    3.8 Spark中的广播机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    四、PMLS分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter4/PMLS安装.html">
+            
+                <a href="../chapter4/PMLS安装.html">
+            
+                    
+                    4.1 PMLS安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../chapter4/PMLS单机版机器学习.html">
+            
+                <a href="../chapter4/PMLS单机版机器学习.html">
+            
+                    
+                    4.2 PMLS单机版机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../chapter4/分布式机器学习.html">
+            
+                <a href="../chapter4/分布式机器学习.html">
+            
+                    
+                    4.3 架设分布式机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    五、Pytorch on Apache Spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter5/SparkTorch的安装.html">
+            
+                <a href="../chapter5/SparkTorch的安装.html">
+            
+                    
+                    5.1 SparkTorch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter5/analytics-zoo.html">
+            
+                <a href="../chapter5/analytics-zoo.html">
+            
+                    
+                    5.2 analytics-zoo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    六、sklearn+spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter6/spark-sklearn.html">
+            
+                <a href="../chapter6/spark-sklearn.html">
+            
+                    
+                    6.1 spark-sklearn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter6/joblibspark.html">
+            
+                <a href="../chapter6/joblibspark.html">
+            
+                    
+                    6.2 Joblib Apache Spark Backend
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    七、Spark Security
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter7/Spark Security.html">
+            
+                <a href="../chapter7/Spark Security.html">
+            
+                    
+                    7.1 Spark Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../chapter7/Spark数据安全.html">
+            
+                <a href="../chapter7/Spark数据安全.html">
+            
+                    
+                    7.2 Spark数据安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+</nav>
+     
+  </div>
+
+  <!-- Content nav -->
+  <div class="book-anchor">
+    <div class="book-anchor-title"></div>
+
+    <div class="book-anchor-body"></div>
+  </div>
+
+  <div class="book-body">
+    
+    <div class="body-inner">
+       
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.2 集合通信</a>
+    </h1>
+</div>
+
+
+
+      <div class="page-wrapper" tabindex="-1" role="main">
+        <div class="page-inner">
+          
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+          <section class="normal markdown-section">
+             <h2 id="&#x96C6;&#x5408;&#x901A;&#x4FE1;">&#x96C6;&#x5408;&#x901A;&#x4FE1;</h2>
+<p>&#x548C;P2P&#x901A;&#x4FE1;&#x76F8;&#x5BF9;&#x5E94;&#xFF0C;&#x96C6;&#x5408;&#x901A;&#x4FE1;&#x5219;&#x662F;1&#x5BF9;&#x591A;&#x6216;&#x662F;&#x591A;&#x5BF9;&#x591A;&#x7684;&#x3002;&#x5728;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x5404;&#x4E2A;&#x8282;&#x70B9;&#x95F4;&#x5F80;&#x5F80;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x96C6;&#x5408;&#x901A;&#x4FE1;&#x9700;&#x6C42;&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;<strong>&#x6D88;&#x606F;&#x4F20;&#x9012;&#x63A5;&#x53E3;(Message Passing Interface, MPI)</strong>&#x6765;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x6BD4;&#x8F83;&#x5E95;&#x5C42;&#x7684;&#x6D88;&#x606F;&#x901A;&#x4FE1;&#x884C;&#x4E3A;&#x8B6C;&#x5982;<strong>Reduce&#x3001;Allreduce&#x3001;Scatter&#x3001;Gather&#x3001;Allgather</strong>&#x7B49;&#x3002;&#x5E38;&#x7528;&#x7684;&#x901A;&#x4FE1;&#x6A21;&#x5F0F;&#x6709;&#xFF1A;</p>
+<ul>
+<li><strong>Broadcast</strong></li>
+<li><strong>Scatter</strong></li>
+<li><strong>Gather</strong></li>
+<li><strong>Reduce</strong></li>
+<li><strong>All reduce</strong></li>
+<li><strong>All gather</strong></li>
+</ul>
+<p><strong>AllReduce</strong>&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x7C7B;&#x7B97;&#x6CD5;&#xFF0C;&#x76EE;&#x6807;&#x662F;&#x9AD8;&#x6548;&#x5F97;&#x5C06;&#x4E0D;&#x540C;&#x673A;&#x5668;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x6574;&#x5408;&#xFF08;reduce&#xFF09;&#x4E4B;&#x540E;&#x518D;&#x628A;&#x7ED3;&#x679C;&#x5206;&#x53D1;&#x7ED9;&#x5404;&#x4E2A;&#x673A;&#x5668;&#x3002;&#x5728;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x5F80;&#x5F80;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x6216;&#x8005;&#x77E9;&#x9635;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x7684;&#x6574;&#x5408;&#x5219;&#x6709;Sum&#x3001;Max&#x3001;Min&#x7B49;&#x3002;</p>
+<h2 id="1-broadcast">1. broadcast</h2>
+<p><img src="https://pic4.zhimg.com/80/v2-57d0fbac0d5bf0091d20f34339768d3f_720w.webp" alt="img"></p>
+<p>broadcast&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
+<p>&#x5728;pytorch&#x4E2D;&#x901A;&#x8FC7;<code>torch.distributed.broadcast(tensor, src, group=None, async_op=False)</code> &#x6765;broadcast&#x901A;&#x4FE1;&#x3002;</p>
+<ul>
+<li>&#x53C2;&#x6570;tensor&#x5728;src rank&#x662F;input tensor&#xFF0C;&#x5728;&#x5176;&#x4ED6;rank&#x662F;output tensor&#xFF1B;</li>
+<li>&#x53C2;&#x6570;src&#x8BBE;&#x7F6E;&#x54EA;&#x4E2A;rank&#x8FDB;&#x884C;broadcast&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;rank 0&#xFF1B;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.distributed <span class="hljs-keyword">as</span> dist
+<span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(rank_id, size)</span>:</span>
+    tensor = torch.arange(<span class="hljs-number">2</span>, dtype=torch.int64) + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * rank_id
+    print(<span class="hljs-string">&apos;before broadcast&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    dist.broadcast(tensor, src = <span class="hljs-number">0</span>)
+    print(<span class="hljs-string">&apos;after broadcast&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+
+
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_process</span><span class="hljs-params">(rank_id, size, fn, backend=<span class="hljs-string">&apos;gloo&apos;</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Initialize the distributed environment. &quot;&quot;&quot;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = <span class="hljs-string">&apos;127.0.0.1&apos;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = <span class="hljs-string">&apos;29500&apos;</span>
+    dist.init_process_group(backend, rank=rank_id, world_size=size)
+    fn(rank_id, size)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    size = <span class="hljs-number">4</span>
+    processes = []
+    mp.set_start_method(<span class="hljs-string">&quot;spawn&quot;</span>)
+    <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> range(size):
+        p = mp.Process(target=init_process, args=(rank, size, run))
+        p.start()
+        processes.append(p)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x5171;&#x6709;4&#x4E2A;rank&#x53C2;&#x4E0E;&#x4E86;broadcast&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF1A;rank0 &#x4E3A;[1, 2]&#xFF0C;rank1 &#x4E3A;[3, 4]&#xFF0C; rank2&#x4E3A;[5, 6]&#xFF0C; rank3&#x4E3A;[7, 8]</li>
+<li>broadcast&#x8BA1;&#x7B97;&#x4E4B;&#x540E;&#xFF0C;&#x6240;&#x6709;rank&#x7684;&#x7ED3;&#x679C;&#x5747;rank0&#x7684;tensor&#x5373;[1, 2]&#xFF08;&#x56E0;&#x4E3A;&#x5728;&#x8C03;&#x7528;torch.distributed.broadcast&#x65F6;src&#x8BBE;&#x7F6E;&#x4E3A;0&#xFF0C;&#x8868;&#x793A;rank0&#x8FDB;&#x884C;broadcast&#xFF09;</li>
+</ul>
+<pre><code class="lang-text">before broadcast  Rank  1  has data  tensor([3, 4])
+before broadcast  Rank  0  has data  tensor([1, 2])
+before broadcast  Rank  2  has data  tensor([5, 6])
+before broadcast  Rank  3  has data  tensor([7, 8])
+after broadcast  Rank  1  has data  tensor([1, 2])
+after broadcast  Rank  0  has data  tensor([1, 2])
+after broadcast  Rank  2  has data  tensor([1, 2])
+after broadcast  Rank  3  has data  tensor([1, 2])
+</code></pre>
+<h2 id="2-scatter">2. scatter</h2>
+<p><img src="https://pic2.zhimg.com/80/v2-c70a767109c9054e96c390498c06bef1_720w.webp" alt="img"></p>
+<p>scatter&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x3002;</p>
+<p>&#x5728;pytorch&#x4E2D;&#x901A;&#x8FC7;<code>torch.distributed.scatter(tensor, scatter_list=None, src=0, group=None, async_op=False)</code> &#x6765;&#x5B9E;&#x73B0;scatter&#x901A;&#x4FE1;&#x3002;</p>
+<ul>
+<li>&#x53C2;&#x6570;tensor&#x4E3A;&#x9664; src rank&#x5916;&#xFF0C;&#x5176;&#x4ED6;rank&#x83B7;&#x53D6;output tensor&#x7684;&#x53C2;&#x6570;</li>
+<li>scatter_list&#x4E3A;&#x8FDB;&#x884C;scatter&#x8BA1;&#x7B97;tensor list</li>
+<li>&#x53C2;&#x6570;src&#x8BBE;&#x7F6E;&#x54EA;&#x4E2A;rank&#x8FDB;&#x884C;scatter&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;rank 0&#xFF1B;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4EC5;&#x6709;src rank&#x624D;&#x80FD;&#x8BBE;&#x7F6E;scatter_list( &#x672C;&#x4F8B;&#x4E2D;&#x4E3A;rank 0&#xFF09;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.distributed <span class="hljs-keyword">as</span> dist
+<span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(rank_id, size)</span>:</span>
+    tensor = torch.arange(<span class="hljs-number">2</span>, dtype=torch.int64) + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * rank_id
+    print(<span class="hljs-string">&apos;before scatter&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    <span class="hljs-keyword">if</span> rank_id == <span class="hljs-number">0</span>:
+        scatter_list = [torch.tensor([<span class="hljs-number">0</span>,<span class="hljs-number">0</span>]), torch.tensor([<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]), torch.tensor([<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]), torch.tensor([<span class="hljs-number">3</span>,<span class="hljs-number">3</span>])]
+        print(<span class="hljs-string">&apos;scater list:&apos;</span>, scatter_list)
+        dist.scatter(tensor, src = <span class="hljs-number">0</span>, scatter_list=scatter_list)
+    <span class="hljs-keyword">else</span>:
+        dist.scatter(tensor, src = <span class="hljs-number">0</span>)
+    print(<span class="hljs-string">&apos;after scatter&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+
+
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_process</span><span class="hljs-params">(rank_id, size, fn, backend=<span class="hljs-string">&apos;gloo&apos;</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Initialize the distributed environment. &quot;&quot;&quot;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = <span class="hljs-string">&apos;127.0.0.1&apos;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = <span class="hljs-string">&apos;29500&apos;</span>
+    dist.init_process_group(backend, rank=rank_id, world_size=size)
+    fn(rank_id, size)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    size = <span class="hljs-number">4</span>
+    processes = []
+    mp.set_start_method(<span class="hljs-string">&quot;spawn&quot;</span>)
+    <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> range(size):
+        p = mp.Process(target=init_process, args=(rank, size, run))
+        p.start()
+        processes.append(p)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x5171;&#x6709;4&#x4E2A;rank&#x53C2;&#x4E0E;&#x4E86;scatter&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF1A;rank0 &#x4E3A;[1, 2]&#xFF0C;rank1 &#x4E3A;[3, 4]&#xFF0C; rank2&#x4E3A;[5, 6]&#xFF0C; rank3&#x4E3A;[7, 8]&#xFF0C;scatter list&#x4E3A;[0,0], [1,1], [2,2], [3,3];</li>
+<li>scatter&#x8BA1;&#x7B97;&#x4E4B;&#x540E;&#xFF0C;rank&#x6309;&#x987A;&#x5E8F;&#x88AB;&#x5206;&#x914D;scatter list&#x7684;&#x6BCF;&#x4E00;&#x4E2A;tensor, rank0&#x4E3A;[0,0], rank1&#x4E3A; [1, 1] , rank2&#x4E3A; [2, 2], rank3[3, 3];</li>
+</ul>
+<pre><code class="lang-text">root@g48r13:/workspace/communication# python scatter.py
+before scatter  Rank  1  has data  tensor([3, 4])
+before scatter  Rank  0  has data  tensor([1, 2])
+before scatter  Rank  2  has data  tensor([5, 6])
+scater list: [tensor([0, 0]), tensor([1, 1]), tensor([2, 2]), tensor([3, 3])]
+before scatter  Rank  3  has data  tensor([7, 8])
+after scatter  Rank  1  has data  tensor([1, 1])
+after scatter  Rank  0  has data  tensor([0, 0])
+after scatter  Rank  3  has data  tensor([3, 3])
+after scatter  Rank  2  has data  tensor([2, 2])
+</code></pre>
+<h2 id="3-gather">3. gather</h2>
+<p><img src="https://pic2.zhimg.com/80/v2-3221610be4ec9f0bbffe2cb70ecd4191_720w.webp" alt="img"></p>
+<p>gather&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x3002;&#x5728;pytorch&#x4E2D;&#x901A;&#x8FC7;<code>torch.distributed.gather(tensor, gather_list=None, dst=0, group=None, async_op=False)</code>&#x6765;&#x5B9E;&#x73B0;gather&#x7684;&#x901A;&#x4FE1;&#xFF1B;</p>
+<ul>
+<li>&#x53C2;&#x6570;tensor&#x662F;&#x6240;&#x6709;rank&#x7684;input tensor</li>
+<li>gather_list&#x662F;dst rank&#x7684;output &#x7ED3;&#x679C;</li>
+<li>dst&#x4E3A;&#x76EE;&#x6807;dst</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x8FD9;&#x91CC;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x5728;rank 0&#xFF08;&#x4E5F;&#x5C31;&#x662F;dst rank&#xFF09;&#x4E2D;&#x8981;&#x6307;&#x5B9A;gather_list&#xFF0C;&#x5E76;&#x4E14;&#x8981;&#x5728;gather_list&#x6784;&#x5EFA;&#x597D;&#x7684;tensor&#xFF0C;&#x5426;&#x662F;&#x4F1A;&#x62A5;&#x9519;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.distributed <span class="hljs-keyword">as</span> dist
+<span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(rank_id, size)</span>:</span>
+    tensor = torch.arange(<span class="hljs-number">2</span>, dtype=torch.int64) + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * rank_id
+    print(<span class="hljs-string">&apos;before gather&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    <span class="hljs-keyword">if</span> rank_id == <span class="hljs-number">0</span>:
+        gather_list = [torch.zeros(<span class="hljs-number">2</span>, dtype=torch.int64) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>)]
+        dist.gather(tensor, dst = <span class="hljs-number">0</span>, gather_list=gather_list)
+        print(<span class="hljs-string">&apos;after gather&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+        print(<span class="hljs-string">&apos;gather_list:&apos;</span>, gather_list)
+    <span class="hljs-keyword">else</span>:
+        dist.gather(tensor, dst = <span class="hljs-number">0</span>)
+        print(<span class="hljs-string">&apos;after gather&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_process</span><span class="hljs-params">(rank_id, size, fn, backend=<span class="hljs-string">&apos;gloo&apos;</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Initialize the distributed environment. &quot;&quot;&quot;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = <span class="hljs-string">&apos;127.0.0.1&apos;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = <span class="hljs-string">&apos;29500&apos;</span>
+    dist.init_process_group(backend, rank=rank_id, world_size=size)
+    fn(rank_id, size)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    size = <span class="hljs-number">4</span>
+    processes = []
+    mp.set_start_method(<span class="hljs-string">&quot;spawn&quot;</span>)
+    <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> range(size):
+        p = mp.Process(target=init_process, args=(rank, size, run))
+        p.start()
+        processes.append(p)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x5171;&#x6709;4&#x4E2A;rank&#x53C2;&#x4E0E;&#x4E86;gather&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF1A;rank0 &#x4E3A;[1, 2]&#xFF0C;rank1 &#x4E3A;[3, 4]&#xFF0C; rank2&#x4E3A;[5, 6]&#xFF0C; rank3&#x4E3A;[7, 8]</li>
+<li>gather&#x8BA1;&#x7B97;&#x4E4B;&#x540E;&#xFF0C;gather_list&#x7684;&#x503C;&#x4E3A;[tensor([1, 2]), tensor([3, 4]), tensor([5, 6]), tensor([7, 8])]</li>
+</ul>
+<pre><code class="lang-text">root@g48r13:/workspace/communication# python gather.py
+before gather  Rank  0  has data  tensor([1, 2])
+before gather  Rank  3  has data  tensor([7, 8])
+after gather  Rank  3  has data  tensor([7, 8])
+before gather  Rank  1  has data  tensor([3, 4])
+before gather  Rank  2  has data  tensor([5, 6])
+after gather  Rank  1  has data  tensor([3, 4])
+after gather  Rank  2  has data  tensor([5, 6])
+after gather  Rank  0  has data  tensor([1, 2])
+gather_list: [tensor([1, 2]), tensor([3, 4]), tensor([5, 6]), tensor([7, 8])]
+</code></pre>
+<h2 id="4-reduce">4. reduce</h2>
+<p><img src="https://pic1.zhimg.com/80/v2-49c58e602f1790231b2146f67af843f0_720w.webp" alt="img"></p>
+<p>reduce&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x3002;&#x5728;pytorch&#x4E2D;&#x901A;&#x8FC7;<code>torch.distributed.reduce(tensor, dst, op=&lt;ReduceOp.SUM: 0&gt;, group=None, async_op=False)</code>&#x6765;&#x5B9E;&#x73B0;reduce&#x901A;&#x4FE1;&#xFF1B;</p>
+<ul>
+<li>&#x53C2;&#x6570;tensor&#x662F;&#x9700;&#x8981;&#x8FDB;&#x884C;reduce&#x8BA1;&#x7B97;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5BF9;&#x4E8E;dst rank&#x6765;&#x8BF4;&#xFF0C;tensor&#x4E3A;&#x6700;&#x7EC8;reduce&#x7684;&#x7ED3;&#x679C;</li>
+<li>&#x53C2;&#x6570;dist&#x8BBE;&#x7F6E;&#x76EE;&#x6807;rank&#x7684;ID</li>
+<li>&#x53C2;&#x6570;op&#x4E3A;reduce&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#xFF0C;pytorch&#x4E2D;&#x652F;&#x6301;&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x6709;<strong>SUM, PRODUCT, MIN, MAX, BAND, BOR, and BXOR</strong></li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.distributed <span class="hljs-keyword">as</span> dist
+<span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(rank_id, size)</span>:</span>
+    tensor = torch.arange(<span class="hljs-number">2</span>, dtype=torch.int64) + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * rank_id
+    print(<span class="hljs-string">&apos;before reudce&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    dist.reduce(tensor, dst = <span class="hljs-number">3</span>, op=dist.ReduceOp.SUM,)
+    print(<span class="hljs-string">&apos;after reudce&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_process</span><span class="hljs-params">(rank_id, size, fn, backend=<span class="hljs-string">&apos;gloo&apos;</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Initialize the distributed environment. &quot;&quot;&quot;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = <span class="hljs-string">&apos;127.0.0.1&apos;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = <span class="hljs-string">&apos;29500&apos;</span>
+    dist.init_process_group(backend, rank=rank_id, world_size=size)
+    fn(rank_id, size)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    size = <span class="hljs-number">4</span>
+    processes = []
+    mp.set_start_method(<span class="hljs-string">&quot;spawn&quot;</span>)
+    <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> range(size):
+        p = mp.Process(target=init_process, args=(rank, size, run))
+        p.start()
+        processes.append(p)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x5171;&#x6709;4&#x4E2A;rank&#x53C2;&#x4E0E;&#x4E86;gather&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF1A;rank0 &#x4E3A;[1, 2]&#xFF0C;rank1 &#x4E3A;[3, 4]&#xFF0C; rank2&#x4E3A;[5, 6]&#xFF0C; rank3&#x4E3A;[7, 8]&#xFF1B;dst rank&#x8BBE;&#x7F6E;&#x4E3A;3</li>
+<li>&#x53EF;&#x89C1;rank 3&#x4E3A;reduce sum&#x8BA1;&#x7B97;&#x7684;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#xFF1B;</li>
+<li>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x5C31;&#x662F;rank 0&#x3001;rank 1&#x548C;rank 2&#x7684;tensor&#x4E5F;&#x4F1A;&#x88AB;&#x4FEE;&#x6539;</li>
+</ul>
+<pre><code class="lang-text">root@g48r13:/workspace/communication# python reduce.py
+before reudce  Rank  3  has data  tensor([7, 8])
+before reudce  Rank  0  has data  tensor([1, 2])
+before reudce  Rank  2  has data  tensor([5, 6])
+before reudce  Rank  1  has data  tensor([3, 4])
+after reudce  Rank  1  has data  tensor([15, 18])
+after reudce  Rank  0  has data  tensor([16, 20])
+after reudce  Rank  3  has data  tensor([16, 20]) # reduce &#x7684;&#x6700;&#x7EC8;&#x7ED3;&#x679C;
+after reudce  Rank  2  has data  tensor([12, 14])
+</code></pre>
+<h2 id="5-all-gather">5. all-gather</h2>
+<p><img src="https://pic4.zhimg.com/80/v2-a68cdf9a51ee8689969e752b4fa3d107_720w.webp" alt="img"></p>
+<p>all-gather&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x3002;&#x5728;pytorch&#x4E2D;&#x901A;&#x8FC7;<code>torch.distributed.all_gather(tensor_list, tensor, group=None, async_op=False)</code>&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<ul>
+<li>&#x53C2;&#x6570;tensor_list&#xFF0C;rank&#x4ECE;&#x8BE5;&#x53C2;&#x6570;&#x4E2D;&#x83B7;&#x53D6;all-gather&#x7684;&#x7ED3;&#x679C;</li>
+<li>&#x53C2;&#x6570;tensor&#xFF0C;&#x6BCF;&#x4E2A;rank&#x53C2;&#x4E0E;all-gather&#x8BA1;&#x7B97;&#x8F93;&#x5165;&#x6570;&#x636E;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x540C;gather&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x57FA;&#x672C;&#x4E00;&#x6837;&#xFF0C;&#x533A;&#x522B;&#x662F;all_gather&#x4E2D;&#x6BCF;&#x4E2A;rank&#x90FD;&#x8981;&#x6307;&#x5B9A;gather_list&#xFF0C;&#x5E76;&#x4E14;&#x8981;&#x5728;gather_list&#x6784;&#x5EFA;&#x597D;&#x7684;tensor&#xFF0C;&#x5426;&#x662F;&#x4F1A;&#x62A5;&#x9519;&#xFF1B;</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.distributed <span class="hljs-keyword">as</span> dist
+<span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(rank_id, size)</span>:</span>
+    tensor = torch.arange(<span class="hljs-number">2</span>, dtype=torch.int64) + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * rank_id
+    print(<span class="hljs-string">&apos;before gather&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    gather_list = [torch.zeros(<span class="hljs-number">2</span>, dtype=torch.int64) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>)]
+    dist.all_gather(gather_list, tensor)
+    print(<span class="hljs-string">&apos;after gather&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    print(<span class="hljs-string">&apos;after gather&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has gather list &apos;</span>, gather_list)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_process</span><span class="hljs-params">(rank_id, size, fn, backend=<span class="hljs-string">&apos;gloo&apos;</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Initialize the distributed environment. &quot;&quot;&quot;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = <span class="hljs-string">&apos;127.0.0.1&apos;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = <span class="hljs-string">&apos;29500&apos;</span>
+    dist.init_process_group(backend, rank=rank_id, world_size=size)
+    fn(rank_id, size)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    size = <span class="hljs-number">4</span>
+    processes = []
+    mp.set_start_method(<span class="hljs-string">&quot;spawn&quot;</span>)
+    <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> range(size):
+        p = mp.Process(target=init_process, args=(rank, size, run))
+        p.start()
+        processes.append(p)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x5171;&#x6709;4&#x4E2A;rank&#x53C2;&#x4E0E;&#x4E86;gather&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF1A;rank0 &#x4E3A;[1, 2]&#xFF0C;rank1 &#x4E3A;[3, 4]&#xFF0C; rank2&#x4E3A;[5, 6]&#xFF0C; rank3&#x4E3A;[7, 8]&#xFF1B;</li>
+<li>&#x6267;&#x884C;&#x5B8C;gather_list&#x540E;&#xFF0C;&#x6BCF;&#x4E2A;rank&#x5747;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#x6700;&#x7EC8;gather_list&#x7684;&#x7ED3;&#x679C;</li>
+</ul>
+<pre><code class="lang-text">root@g48r13:/workspace/communication# python all_gather.py
+before gather  Rank  0  has data  tensor([1, 2])
+before gather  Rank  2  has data  tensor([5, 6])
+before gather  Rank  3  has data  tensor([7, 8])
+before gather  Rank  1  has data  tensor([3, 4])
+after gather  Rank  1  has data  tensor([3, 4])
+after gather  Rank  0  has data  tensor([1, 2])
+after gather  Rank  3  has data  tensor([7, 8])
+after gather  Rank  2  has data  tensor([5, 6])
+after gather  Rank  1  has gather list  [tensor([1, 2]), tensor([3, 4]), tensor([5, 6]), tensor([7, 8])]
+after gather  Rank  0  has gather list  [tensor([1, 2]), tensor([3, 4]), tensor([5, 6]), tensor([7, 8])]
+after gather  Rank  3  has gather list  [tensor([1, 2]), tensor([3, 4]), tensor([5, 6]), tensor([7, 8])]
+after gather  Rank  2  has gather list  [tensor([1, 2]), tensor([3, 4]), tensor([5, 6]), tensor([7, 8])]
+</code></pre>
+<h2 id="6-all-reduce">6. all-reduce</h2>
+<p><img src="https://pic1.zhimg.com/80/v2-2d5a12cc360ef9b4a1d9d5f0ce687288_720w.webp" alt="img"></p>
+<p>all-reduce&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#x3002;&#x5728;pytorch&#x4E2D;&#x901A;&#x8FC7;<code>torch.distributed.all_reduce(tensor, op=&lt;ReduceOp.SUM: 0&gt;, group=None, async_op=False)</code>&#x6765;&#x5B9E;&#x73B0;all-reduce&#x7684;&#x8C03;&#x7528;&#xFF1B;</p>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x6240;&#x793A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">import</span> torch.distributed <span class="hljs-keyword">as</span> dist
+<span class="hljs-keyword">import</span> torch.multiprocessing <span class="hljs-keyword">as</span> mp
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(rank_id, size)</span>:</span>
+    tensor = torch.arange(<span class="hljs-number">2</span>, dtype=torch.int64) + <span class="hljs-number">1</span> + <span class="hljs-number">2</span> * rank_id
+    print(<span class="hljs-string">&apos;before reudce&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+    dist.all_reduce(tensor, op=dist.ReduceOp.SUM)
+    print(<span class="hljs-string">&apos;after reudce&apos;</span>,<span class="hljs-string">&apos; Rank &apos;</span>, rank_id, <span class="hljs-string">&apos; has data &apos;</span>, tensor)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_process</span><span class="hljs-params">(rank_id, size, fn, backend=<span class="hljs-string">&apos;gloo&apos;</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Initialize the distributed environment. &quot;&quot;&quot;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = <span class="hljs-string">&apos;127.0.0.1&apos;</span>
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = <span class="hljs-string">&apos;29500&apos;</span>
+    dist.init_process_group(backend, rank=rank_id, world_size=size)
+    fn(rank_id, size)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    size = <span class="hljs-number">4</span>
+    processes = []
+    mp.set_start_method(<span class="hljs-string">&quot;spawn&quot;</span>)
+    <span class="hljs-keyword">for</span> rank <span class="hljs-keyword">in</span> range(size):
+        p = mp.Process(target=init_process, args=(rank, size, run))
+        p.start()
+        processes.append(p)
+
+    <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> processes:
+        p.join()
+</code></pre>
+<p>&#x8F93;&#x51FA;&#x5185;&#x5185;&#x5BB9;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x5171;&#x6709;4&#x4E2A;rank&#x53C2;&#x4E0E;&#x4E86;all-reduce&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x4E4B;&#x524D;&#xFF1A;rank0 &#x4E3A;[1, 2]&#xFF0C;rank1 &#x4E3A;[3, 4]&#xFF0C; rank2&#x4E3A;[5, 6]&#xFF0C; rank3&#x4E3A;[7, 8]</li>
+<li>all-reduce&#x8BA1;&#x7B97;&#x4E4B;&#x540E;&#xFF0C;&#x6240;&#x6709;rank&#x7684;&#x7ED3;&#x679C;&#x5747;&#x76F8;&#x540C;&#xFF0C;&#x4E3A;rank0-rank3&#x7684;tensor&#x8BA1;&#x7B97;sum&#x7684;&#x7ED3;&#x679C;[1+3 + 5 + 7, 2 + 4 + 6 + 8]=[16, 20]</li>
+</ul>
+<pre><code class="lang-text">root@g48r13:/workspace/communication# python all_reduce.py
+before reudce  Rank  3  has data  tensor([7, 8])
+before reudce  Rank  2  has data  tensor([5, 6])
+before reudce  Rank  0  has data  tensor([1, 2])
+before reudce  Rank  1  has data  tensor([3, 4])
+after reudce  Rank  0  has data  tensor([16, 20])
+after reudce  Rank  3  has data  tensor([16, 20])
+after reudce  Rank  2  has data  tensor([16, 20])
+after reudce  Rank  1  has data  tensor([16, 20])
+</code></pre>
+<h2 id="&#x53C2;&#x8003;&#x8D44;&#x6599;">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/478953028" target="_blank">Pytorch - &#x5206;&#x5E03;&#x5F0F;&#x901A;&#x4FE1;&#x539F;&#x8BED;&#xFF08;&#x9644;&#x6E90;&#x7801;&#xFF09; - &#x989C;&#x633A;&#x5E05;&#x7684;&#x6587;&#x7AE0; - &#x77E5;&#x4E4E;</a></p>
+<p><a href="https://blog.csdn.net/taoqick/article/details/126449935" target="_blank">NCCL&#x3001;OpenMPI&#x3001;Gloo&#x5BF9;&#x6BD4;</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/100012827" target="_blank">&#x5173;&#x4E8E;AllReduce</a></p>
+<p><a href="https://github.com/tczhangzhi/pytorch-distributed" target="_blank">torch.distributed.all_reduce&#x7684;&#x67B6;&#x6784;&#x4ECB;&#x7ECD;</a></p>
+<p><a href="https://www.jianshu.com/p/5f6cd6b50140" target="_blank">&#x5206;&#x5E03;&#x5F0F;&#x901A;&#x4FE1;&#x5305; - torch.distributed</a></p>
+<p><a href="https://pytorch.org/docs/stable/distributed.html" target="_blank">PyTorch torch.distributed&#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
+ 
+          </section>
+          
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+ 
+          <div class="book-footer">
+             
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+     
+    <a
+      href="点对点通信.html"
+      class="
+        navigation navigation-prev
+        
+      "
+      aria-label="Previous page: 1.1 点对点通信"
+    >
+      <i class="fa fa-angle-left"></i>
+    </a>
+     
+    <a
+      href="分布式架构.html"
+      class="
+        navigation navigation-next
+        
+      "
+      aria-label="Next page: 1.3 分布式架构"
+    >
+      <i class="fa fa-angle-right"></i>
+    </a>
+      
+  </div>
+  <script>
+    function showModal() {
+      document.getElementsByClassName("mask")[0].style.display = "block";
+      document.getElementsByClassName("donate-modal")[0].style.display =
+        "block";
+    }
+    // 切换赞赏码
+    function showDonateImg(num) {
+      let alipay = "";
+      let wxpay = ""
+      if(num){
+        wxpay = "hidden"
+      }else{
+        alipay = "hidden"
+      }
+      document.getElementById("wxpay-code").hidden = wxpay;
+      document.getElementById("alipay-code").hidden = alipay;
+      document.getElementsByName("pay-way")[num].checked = "checked";
+    }
+    function onMoseDown() {
+      if( document.getElementsByClassName("logo")[0].style.display == "none") {
+        document.getElementsByClassName("logo")[0].style.display = "block"
+        return
+      }
+      document.getElementsByClassName("logo")[0].style.display = "none";
+    }
+
+    // 关闭赞赏框
+    function closeDonateModal() {
+      document.getElementsByClassName("mask")[0].style.display = "none";
+      document.getElementsByClassName("donate-modal")[0].style.display = "none";
+    }
+
+    var gitbook = gitbook || [];
+    gitbook.push(function () {
+      gitbook.page.hasChanged({"page":{"title":"1.2 集合通信","level":"1.2.2","depth":2,"next":{"title":"1.3 分布式架构","level":"1.2.3","depth":2,"path":"chapter1/分布式架构.md","ref":"chapter1/分布式架构.md","articles":[]},"previous":{"title":"1.1 点对点通信","level":"1.2.1","depth":2,"path":"chapter1/点对点通信.md","ref":"chapter1/点对点通信.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","back-to-top-button","theme-lou","flexible-alerts","highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider"],"color":"#4169E1","book-anchor-title":"本篇章节","copyright":{"author":"爱学习的草履虫"},"forbidCopy":false,"logo":"img/icon.gif","book-summary-title":"目录","search-placeholder":"Input Keywords to Search","copyrightLogo":"assets/copyright.png","favicon":"img/icon.gif","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"flexible-alerts":{"style":"flat","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"爱学习的草履虫","lang":"zh-cn","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeLou":{"footer":{"copyright":false}}},"title":"分布式机器学习笔记","gitbook":"*","description":"分布式机器学习笔记"},"file":{"path":"chapter1/集合通信.md","mtime":"2023-03-20T12:23:07.340Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-20T15:08:46.022Z"},"basePath":"..","book":{"language":""}});
+    });
+  </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-lou/lou.js"></script>
+        
+    
+
+    </body>
+</html>
+

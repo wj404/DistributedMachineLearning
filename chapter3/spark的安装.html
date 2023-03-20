@@ -1,0 +1,813 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.1 spark的安装 · 分布式机器学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="爱学习的草履虫">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-lou/lou.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="spark单机版机器学习示例.html" />
+    
+    
+
+    </head>
+    <body>
+         
+
+<div class="book">
+  <div class="header-inner">
+    <!-- LOGO -->
+    <div class="logo" onmousedown="onMoseDown()"></div>
+    <span class="title"></span>
+
+    <!-- Search -->
+    
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+
+    <!-- Nav -->
+    <ul class="header-nav">
+      
+    </ul>
+  </div>
+
+  <div class="book-summary">
+    <div class="book-summary-title">文档目录</div>
+     
+    <nav role="navigation">
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    分布式机器学习介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    一、有关通信的预备知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/点对点通信.html">
+            
+                <a href="../chapter1/点对点通信.html">
+            
+                    
+                    1.1 点对点通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/集合通信.html">
+            
+                <a href="../chapter1/集合通信.html">
+            
+                    
+                    1.2 集合通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/分布式架构.html">
+            
+                <a href="../chapter1/分布式架构.html">
+            
+                    
+                    1.3 分布式架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/torch_distributed.html">
+            
+                <a href="../chapter1/torch_distributed.html">
+            
+                    
+                    1.4 分布式通信包 - torch.distributed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/PyTorch进程通信.html">
+            
+                <a href="../chapter1/PyTorch进程通信.html">
+            
+                    
+                    1.5 Pytorch多进程通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    二、分布式深度学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/单机分布式训练MINIST.html">
+            
+                <a href="../chapter2/单机分布式训练MINIST.html">
+            
+                    
+                    2.1 单机分布式训练神经网络案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/PyTorch-ps.html">
+            
+                <a href="../chapter2/PyTorch-ps.html">
+            
+                    
+                    2.2 PyTorch Parameters Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/Flower联邦学习.html">
+            
+                <a href="../chapter2/Flower联邦学习.html">
+            
+                    
+                    2.3 Flower联邦学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    三、Spark分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="spark的安装.html">
+            
+                <a href="spark的安装.html">
+            
+                    
+                    3.1 spark的安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="spark单机版机器学习示例.html">
+            
+                <a href="spark单机版机器学习示例.html">
+            
+                    
+                    3.2 spark单机版机器学习示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="spark集群的搭建.html">
+            
+                <a href="spark集群的搭建.html">
+            
+                    
+                    3.3  spark集群的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="集群机器学习任务.html">
+            
+                <a href="集群机器学习任务.html">
+            
+                    
+                    3.4  集群机器学习任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="Spark运行原理.html">
+            
+                <a href="Spark运行原理.html">
+            
+                    
+                    3.5  Spark运行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="Spark中ml和mllib的区别.html">
+            
+                <a href="Spark中ml和mllib的区别.html">
+            
+                    
+                    3.6 Spark中ml和mllib的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="Spark中Shuffle操作.html">
+            
+                <a href="Spark中Shuffle操作.html">
+            
+                    
+                    3.7 Spark中Shuffle操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="Spark中的广播机制.html">
+            
+                <a href="Spark中的广播机制.html">
+            
+                    
+                    3.8 Spark中的广播机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    四、PMLS分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter4/PMLS安装.html">
+            
+                <a href="../chapter4/PMLS安装.html">
+            
+                    
+                    4.1 PMLS安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../chapter4/PMLS单机版机器学习.html">
+            
+                <a href="../chapter4/PMLS单机版机器学习.html">
+            
+                    
+                    4.2 PMLS单机版机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../chapter4/分布式机器学习.html">
+            
+                <a href="../chapter4/分布式机器学习.html">
+            
+                    
+                    4.3 架设分布式机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    五、Pytorch on Apache Spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter5/SparkTorch的安装.html">
+            
+                <a href="../chapter5/SparkTorch的安装.html">
+            
+                    
+                    5.1 SparkTorch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter5/analytics-zoo.html">
+            
+                <a href="../chapter5/analytics-zoo.html">
+            
+                    
+                    5.2 analytics-zoo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    六、sklearn+spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter6/spark-sklearn.html">
+            
+                <a href="../chapter6/spark-sklearn.html">
+            
+                    
+                    6.1 spark-sklearn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter6/joblibspark.html">
+            
+                <a href="../chapter6/joblibspark.html">
+            
+                    
+                    6.2 Joblib Apache Spark Backend
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    七、Spark Security
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter7/Spark Security.html">
+            
+                <a href="../chapter7/Spark Security.html">
+            
+                    
+                    7.1 Spark Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../chapter7/Spark数据安全.html">
+            
+                <a href="../chapter7/Spark数据安全.html">
+            
+                    
+                    7.2 Spark数据安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+</nav>
+     
+  </div>
+
+  <!-- Content nav -->
+  <div class="book-anchor">
+    <div class="book-anchor-title"></div>
+
+    <div class="book-anchor-body"></div>
+  </div>
+
+  <div class="book-body">
+    
+    <div class="body-inner">
+       
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.1 spark的安装</a>
+    </h1>
+</div>
+
+
+
+      <div class="page-wrapper" tabindex="-1" role="main">
+        <div class="page-inner">
+          
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+          <section class="normal markdown-section">
+             <h1 id="spark&#x7684;&#x5B89;&#x88C5;">Spark&#x7684;&#x5B89;&#x88C5;</h1>
+<h2 id="&#x4E00;&#x3001;&#x672C;&#x5730;&#x5B89;&#x88C5;">&#x4E00;&#x3001;&#x672C;&#x5730;&#x5B89;&#x88C5;</h2>
+<h3 id="1-&#x5B89;&#x88C5;hadoop">1. &#x5B89;&#x88C5;Hadoop</h3>
+<p><a href="https://dblab.xmu.edu.cn/blog/7/" target="_blank">Hadoop&#x5B89;&#x88C5;&#x6559;&#x7A0B;_&#x5355;&#x673A;/&#x4F2A;&#x5206;&#x5E03;&#x5F0F;&#x914D;&#x7F6E;_Hadoop2.6.0(2.7.1)/Ubuntu14.04(16.04)</a></p>
+<h3 id="2-&#x5B89;&#x88C5;spark">2. &#x5B89;&#x88C5;Spark</h3>
+<p><a href="https://dblab.xmu.edu.cn/blog/1689/" target="_blank">Spark2.1.0+&#x5165;&#x95E8;&#xFF1A;Spark&#x7684;&#x5B89;&#x88C5;&#x548C;&#x4F7F;&#x7528;(Python&#x7248;)</a></p>
+<h2 id="&#x4E8C;&#x3001;anaconda&#x5B89;&#x88C5;">&#x4E8C;&#x3001;Anaconda&#x5B89;&#x88C5;</h2>
+<h3 id="1-&#x5B89;&#x88C5;java&#x73AF;&#x5883;">1. &#x5B89;&#x88C5;Java&#x73AF;&#x5883;</h3>
+<p>&#x5728;Linux&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;&#x4E2D;&#xFF0C;&#x6267;&#x884C;&#x5982;&#x4E0B;Shell&#x547D;&#x4EE4;&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x5F53;&#x524D;&#x767B;&#x5F55;&#x7528;&#x6237;&#x540D;&#x662F;hadoop&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> /usr/lib
+sudo mkdir jvm <span class="hljs-comment">#&#x521B;&#x5EFA;/usr/lib/jvm&#x76EE;&#x5F55;&#x7528;&#x6765;&#x5B58;&#x653E;JDK&#x6587;&#x4EF6;</span>
+<span class="hljs-built_in">cd</span> ~ <span class="hljs-comment">#&#x8FDB;&#x5165;hadoop&#x7528;&#x6237;&#x7684;&#x4E3B;&#x76EE;&#x5F55;cd Downloads  #&#x6CE8;&#x610F;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#xFF0C;&#x521A;&#x624D;&#x5DF2;&#x7ECF;&#x901A;&#x8FC7;FTP&#x8F6F;&#x4EF6;&#x628A;JDK&#x5B89;&#x88C5;&#x5305;jdk-8u162-linux-x64.tar.gz&#x4E0A;&#x4F20;&#x5230;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;</span>
+sudo tar -zxvf ./jdk-8u162-linux-x64.tar.gz -C /usr/lib/jvm  <span class="hljs-comment">#&#x628A;JDK&#x6587;&#x4EF6;&#x89E3;&#x538B;&#x5230;/usr/lib/jvm&#x76EE;&#x5F55;&#x4E0B;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4F7F;&#x7528;&#x4E86;&#x89E3;&#x538B;&#x7F29;&#x547D;&#x4EE4;tar&#xFF0C;&#x5982;&#x679C;&#x5BF9;Linux&#x547D;&#x4EE4;&#x4E0D;&#x719F;&#x6089;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;<a href="https://dblab.xmu.edu.cn/blog/1624-2/" target="_blank">&#x5E38;&#x7528;&#x7684;Linux&#x547D;&#x4EE4;&#x7528;&#x6CD5;</a>&#x3002;</p>
+<p>JDK&#x6587;&#x4EF6;&#x89E3;&#x538B;&#x7F29;&#x4EE5;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x5230;/usr/lib/jvm&#x76EE;&#x5F55;&#x67E5;&#x770B;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> /usr/lib/jvmls
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;/usr/lib/jvm&#x76EE;&#x5F55;&#x4E0B;&#x6709;&#x4E2A;jdk1.8.0_162&#x76EE;&#x5F55;&#x3002;
+&#x4E0B;&#x9762;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> ~vim ~/.bashrc
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x547D;&#x4EE4;&#x4F7F;&#x7528;vim&#x7F16;&#x8F91;&#x5668;&#xFF08;<a href="https://dblab.xmu.edu.cn/blog/1607-2/" target="_blank">&#x67E5;&#x770B;vim&#x7F16;&#x8F91;&#x5668;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a>&#xFF09;&#x6253;&#x5F00;&#x4E86;hadoop&#x8FD9;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x8BF7;&#x5728;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5934;&#x4F4D;&#x7F6E;&#xFF0C;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x51E0;&#x884C;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code>export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_162
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:$PATH
+</code></pre><p>&#x4FDD;&#x5B58;.bashrc&#x6587;&#x4EF6;&#x5E76;&#x9000;&#x51FA;vim&#x7F16;&#x8F91;&#x5668;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x8BA9;.bashrc&#x6587;&#x4EF6;&#x7684;&#x914D;&#x7F6E;&#x7ACB;&#x5373;&#x751F;&#x6548;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">source</span> ~/.bashrc
+</code></pre>
+<p>&#x8FD9;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x662F;&#x5426;&#x5B89;&#x88C5;&#x6210;&#x529F;&#xFF1A;</p>
+<pre><code class="lang-bash">java -version
+</code></pre>
+<p>&#x5982;&#x679C;&#x80FD;&#x591F;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x8FD4;&#x56DE;&#x5982;&#x4E0B;&#x4FE1;&#x606F;&#xFF0C;&#x5219;&#x8BF4;&#x660E;&#x5B89;&#x88C5;&#x6210;&#x529F;&#xFF1A;</p>
+<pre><code>hadoop@ubuntu:~$ java -version
+java version &quot;1.8.0_162&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_162-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.162-b12, mixed mode)
+</code></pre><h3 id="2-&#x5B89;&#x88C5;anaconda">2. &#x5B89;&#x88C5;anaconda</h3>
+<p>Anaconda&#x6E05;&#x534E;&#x5927;&#x5B66;&#x955C;&#x50CF;&#x4E0B;&#x8F7D;&#xFF1A;<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
+<h3 id="3-&#x5B89;&#x88C5;spark&#x4F7F;&#x7528;conda">3. &#x5B89;&#x88C5;spark&#x4F7F;&#x7528;conda</h3>
+<pre><code>conda create -n pyspark_env
+conda activate pyspark_env
+</code></pre><p>&#x6FC0;&#x6D3B;&#x73AF;&#x5883;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x5B89;&#x88C5; pypark&#x3001;&#x60A8;&#x9009;&#x62E9;&#x7684; python &#x7248;&#x672C;&#xFF0C;&#x4EE5;&#x53CA;&#x60A8;&#x5E0C;&#x671B;&#x5728;&#x4E0E; pypark &#x76F8;&#x540C;&#x7684;&#x4F1A;&#x8BDD;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x5176;&#x4ED6;&#x5305;(&#x4E5F;&#x53EF;&#x4EE5;&#x5206;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#x8FDB;&#x884C;&#x5B89;&#x88C5;)&#x3002;</p>
+<pre><code>conda install -c conda-forge pyspark  # can also add &quot;python=3.8 some_package [etc.]&quot; here
+</code></pre><h2 id="&#x4E09;&#x3001;docker&#x5BB9;&#x5668;">&#x4E09;&#x3001;Docker&#x5BB9;&#x5668;</h2>
+<pre><code class="lang-shell">docker pull bitnami/spark:3
+</code></pre>
+ 
+          </section>
+          
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+ 
+          <div class="book-footer">
+             
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+      
+    <a
+      href="spark单机版机器学习示例.html"
+      class="
+        navigation navigation-next
+        navigation-unique
+      "
+      aria-label="Next page: 3.2 spark单机版机器学习示例"
+    >
+      <i class="fa fa-angle-right"></i>
+    </a>
+      
+  </div>
+  <script>
+    function showModal() {
+      document.getElementsByClassName("mask")[0].style.display = "block";
+      document.getElementsByClassName("donate-modal")[0].style.display =
+        "block";
+    }
+    // 切换赞赏码
+    function showDonateImg(num) {
+      let alipay = "";
+      let wxpay = ""
+      if(num){
+        wxpay = "hidden"
+      }else{
+        alipay = "hidden"
+      }
+      document.getElementById("wxpay-code").hidden = wxpay;
+      document.getElementById("alipay-code").hidden = alipay;
+      document.getElementsByName("pay-way")[num].checked = "checked";
+    }
+    function onMoseDown() {
+      if( document.getElementsByClassName("logo")[0].style.display == "none") {
+        document.getElementsByClassName("logo")[0].style.display = "block"
+        return
+      }
+      document.getElementsByClassName("logo")[0].style.display = "none";
+    }
+
+    // 关闭赞赏框
+    function closeDonateModal() {
+      document.getElementsByClassName("mask")[0].style.display = "none";
+      document.getElementsByClassName("donate-modal")[0].style.display = "none";
+    }
+
+    var gitbook = gitbook || [];
+    gitbook.push(function () {
+      gitbook.page.hasChanged({"page":{"title":"3.1 spark的安装","level":"1.4.1","depth":2,"next":{"title":"3.2 spark单机版机器学习示例","level":"1.4.2","depth":2,"path":"chapter3/spark单机版机器学习示例.md","ref":"chapter3/spark单机版机器学习示例.md","articles":[]},"previous":{"title":"三、Spark分布式机器学习","level":"1.4","depth":1,"ref":"","articles":[{"title":"3.1 spark的安装","level":"1.4.1","depth":2,"path":"chapter3/spark的安装.md","ref":"chapter3/spark的安装.md","articles":[]},{"title":"3.2 spark单机版机器学习示例","level":"1.4.2","depth":2,"path":"chapter3/spark单机版机器学习示例.md","ref":"chapter3/spark单机版机器学习示例.md","articles":[]},{"title":"3.3  spark集群的搭建","level":"1.4.3","depth":2,"path":"chapter3/spark集群的搭建.md","ref":"chapter3/spark集群的搭建.md","articles":[]},{"title":"3.4  集群机器学习任务","level":"1.4.4","depth":2,"path":"chapter3/集群机器学习任务.md","ref":"chapter3/集群机器学习任务.md","articles":[]},{"title":"3.5  Spark运行原理","level":"1.4.5","depth":2,"path":"chapter3/Spark运行原理.md","ref":"chapter3/Spark运行原理.md","articles":[]},{"title":"3.6 Spark中ml和mllib的区别","level":"1.4.6","depth":2,"path":"chapter3/Spark中ml和mllib的区别.md","ref":"chapter3/Spark中ml和mllib的区别.md","articles":[]},{"title":"3.7 Spark中Shuffle操作","level":"1.4.7","depth":2,"path":"chapter3/Spark中Shuffle操作.md","ref":"chapter3/Spark中Shuffle操作.md","articles":[]},{"title":"3.8 Spark中的广播机制","level":"1.4.8","depth":2,"path":"chapter3/Spark中的广播机制.md","ref":"chapter3/Spark中的广播机制.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","back-to-top-button","theme-lou","flexible-alerts","highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider"],"color":"#4169E1","book-anchor-title":"本篇章节","copyright":{"author":"爱学习的草履虫"},"forbidCopy":false,"logo":"img/icon.gif","book-summary-title":"目录","search-placeholder":"Input Keywords to Search","copyrightLogo":"assets/copyright.png","favicon":"img/icon.gif","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"flexible-alerts":{"style":"flat","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"爱学习的草履虫","lang":"zh-cn","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeLou":{"footer":{"copyright":false}}},"title":"分布式机器学习笔记","gitbook":"*","description":"分布式机器学习笔记"},"file":{"path":"chapter3/spark的安装.md","mtime":"2023-02-20T06:37:56.142Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-20T15:08:46.022Z"},"basePath":"..","book":{"language":""}});
+    });
+  </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-lou/lou.js"></script>
+        
+    
+
+    </body>
+</html>
+

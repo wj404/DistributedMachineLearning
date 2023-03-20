@@ -1,0 +1,808 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.3 分布式架构 · 分布式机器学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="爱学习的草履虫">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-lou/lou.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="torch_distributed.html" />
+    
+    
+    <link rel="prev" href="集合通信.html" />
+    
+
+    </head>
+    <body>
+         
+
+<div class="book">
+  <div class="header-inner">
+    <!-- LOGO -->
+    <div class="logo" onmousedown="onMoseDown()"></div>
+    <span class="title"></span>
+
+    <!-- Search -->
+    
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+
+    <!-- Nav -->
+    <ul class="header-nav">
+      
+    </ul>
+  </div>
+
+  <div class="book-summary">
+    <div class="book-summary-title">文档目录</div>
+     
+    <nav role="navigation">
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    分布式机器学习介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    一、有关通信的预备知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="点对点通信.html">
+            
+                <a href="点对点通信.html">
+            
+                    
+                    1.1 点对点通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="集合通信.html">
+            
+                <a href="集合通信.html">
+            
+                    
+                    1.2 集合通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3" data-path="分布式架构.html">
+            
+                <a href="分布式架构.html">
+            
+                    
+                    1.3 分布式架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="torch_distributed.html">
+            
+                <a href="torch_distributed.html">
+            
+                    
+                    1.4 分布式通信包 - torch.distributed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="PyTorch进程通信.html">
+            
+                <a href="PyTorch进程通信.html">
+            
+                    
+                    1.5 Pytorch多进程通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    二、分布式深度学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter2/单机分布式训练MINIST.html">
+            
+                <a href="../chapter2/单机分布式训练MINIST.html">
+            
+                    
+                    2.1 单机分布式训练神经网络案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter2/PyTorch-ps.html">
+            
+                <a href="../chapter2/PyTorch-ps.html">
+            
+                    
+                    2.2 PyTorch Parameters Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter2/Flower联邦学习.html">
+            
+                <a href="../chapter2/Flower联邦学习.html">
+            
+                    
+                    2.3 Flower联邦学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    三、Spark分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter3/spark的安装.html">
+            
+                <a href="../chapter3/spark的安装.html">
+            
+                    
+                    3.1 spark的安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chapter3/spark单机版机器学习示例.html">
+            
+                <a href="../chapter3/spark单机版机器学习示例.html">
+            
+                    
+                    3.2 spark单机版机器学习示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chapter3/spark集群的搭建.html">
+            
+                <a href="../chapter3/spark集群的搭建.html">
+            
+                    
+                    3.3  spark集群的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../chapter3/集群机器学习任务.html">
+            
+                <a href="../chapter3/集群机器学习任务.html">
+            
+                    
+                    3.4  集群机器学习任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../chapter3/Spark运行原理.html">
+            
+                <a href="../chapter3/Spark运行原理.html">
+            
+                    
+                    3.5  Spark运行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../chapter3/Spark中ml和mllib的区别.html">
+            
+                <a href="../chapter3/Spark中ml和mllib的区别.html">
+            
+                    
+                    3.6 Spark中ml和mllib的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../chapter3/Spark中Shuffle操作.html">
+            
+                <a href="../chapter3/Spark中Shuffle操作.html">
+            
+                    
+                    3.7 Spark中Shuffle操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../chapter3/Spark中的广播机制.html">
+            
+                <a href="../chapter3/Spark中的广播机制.html">
+            
+                    
+                    3.8 Spark中的广播机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    四、PMLS分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter4/PMLS安装.html">
+            
+                <a href="../chapter4/PMLS安装.html">
+            
+                    
+                    4.1 PMLS安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../chapter4/PMLS单机版机器学习.html">
+            
+                <a href="../chapter4/PMLS单机版机器学习.html">
+            
+                    
+                    4.2 PMLS单机版机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../chapter4/分布式机器学习.html">
+            
+                <a href="../chapter4/分布式机器学习.html">
+            
+                    
+                    4.3 架设分布式机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    五、Pytorch on Apache Spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter5/SparkTorch的安装.html">
+            
+                <a href="../chapter5/SparkTorch的安装.html">
+            
+                    
+                    5.1 SparkTorch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter5/analytics-zoo.html">
+            
+                <a href="../chapter5/analytics-zoo.html">
+            
+                    
+                    5.2 analytics-zoo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    六、sklearn+spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter6/spark-sklearn.html">
+            
+                <a href="../chapter6/spark-sklearn.html">
+            
+                    
+                    6.1 spark-sklearn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter6/joblibspark.html">
+            
+                <a href="../chapter6/joblibspark.html">
+            
+                    
+                    6.2 Joblib Apache Spark Backend
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    七、Spark Security
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter7/Spark Security.html">
+            
+                <a href="../chapter7/Spark Security.html">
+            
+                    
+                    7.1 Spark Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../chapter7/Spark数据安全.html">
+            
+                <a href="../chapter7/Spark数据安全.html">
+            
+                    
+                    7.2 Spark数据安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+</nav>
+     
+  </div>
+
+  <!-- Content nav -->
+  <div class="book-anchor">
+    <div class="book-anchor-title"></div>
+
+    <div class="book-anchor-body"></div>
+  </div>
+
+  <div class="book-body">
+    
+    <div class="body-inner">
+       
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.3 分布式架构</a>
+    </h1>
+</div>
+
+
+
+      <div class="page-wrapper" tabindex="-1" role="main">
+        <div class="page-inner">
+          
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+          <section class="normal markdown-section">
+             <h1 id="&#x5206;&#x5E03;&#x5F0F;&#x67B6;&#x6784;">&#x5206;&#x5E03;&#x5F0F;&#x67B6;&#x6784;</h1>
+<h2 id="1-allreduce">1. AllReduce</h2>
+<p>AllReduce&#x5176;&#x5B9E;&#x662F;&#x4E00;&#x7C7B;&#x7B97;&#x6CD5;&#xFF0C;&#x76EE;&#x6807;&#x662F;&#x9AD8;&#x6548;&#x5F97;&#x5C06;&#x4E0D;&#x540C;&#x673A;&#x5668;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x6574;&#x5408;&#xFF08;reduce&#xFF09;&#x4E4B;&#x540E;&#x518D;&#x628A;&#x7ED3;&#x679C;&#x5206;&#x53D1;&#x7ED9;&#x5404;&#x4E2A;&#x673A;&#x5668;&#x3002;&#x5728;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x6570;&#x636E;&#x5F80;&#x5F80;&#x662F;&#x4E00;&#x4E2A;&#x5411;&#x91CF;&#x6216;&#x8005;&#x77E9;&#x9635;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x7684;&#x6574;&#x5408;&#x5219;&#x6709;Sum&#x3001;Max&#x3001;Min&#x7B49;&#x3002;&#x56FE;&#x4E00;&#x5C55;&#x793A;&#x4E86;AllReduce&#x5728;&#x6709;&#x56DB;&#x53F0;&#x673A;&#x5668;&#xFF0C;&#x6BCF;&#x53F0;&#x673A;&#x5668;&#x6709;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x56DB;&#x7684;&#x5411;&#x91CF;&#x65F6;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x3002;</p>
+<p><img src="assets/v2-df5c04e8babf33f47cb5ad3803509197_720w.webp" alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-772fe2fa6d7fbf971b2e3962e72250f2_720w.webp" alt="img"></p>
+<p>AllReduce&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x6709;&#x5F88;&#x591A;&#x79CD;&#xFF0C;&#x6700;&#x5355;&#x7EAF;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x6BCF;&#x4E2A;worker&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x53D1;&#x7ED9;&#x5176;&#x4ED6;&#x7684;&#x6240;&#x6709;worker&#xFF0C;&#x7136;&#x800C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x6D6A;&#x8D39;</p>
+<p><img src="assets/v2-91214db72f20bf7022abd07752eeb880_720w.webp" alt="img"></p>
+<h2 id="2-&#x4E3B;&#x4ECE;&#x5F0F;&#x67B6;&#x6784;">2. &#x4E3B;&#x4ECE;&#x5F0F;&#x67B6;&#x6784;</h2>
+<p>&#x4E00;&#x4E2A;&#x7565;&#x4F18;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x5229;&#x7528;&#x4E3B;&#x4ECE;&#x5F0F;&#x67B6;&#x6784;&#xFF0C;&#x5C06;&#x4E00;&#x4E2A;worker&#x8BBE;&#x4E3A;master&#xFF0C;&#x5176;&#x4F59;&#x6240;&#x6709;worker&#x628A;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7ED9;master&#x4E4B;&#x540E;&#xFF0C;&#x7531;master&#x8FDB;&#x884C;&#x6574;&#x5408;&#x5143;&#x7B97;&#xFF0C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x518D;&#x5206;&#x53D1;&#x7ED9;&#x5176;&#x4F59;worker&#x3002;&#x4E0D;&#x8FC7;&#x8FD9;&#x79CD;&#x5B9E;&#x73B0;master&#x5F80;&#x5F80;&#x4F1A;&#x6210;&#x4E3A;&#x6574;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x74F6;&#x9888;&#x3002;</p>
+<p><img src="assets/v2-03cab8a0d902f0cdff9481c282f3d2c1_720w.webp" alt="img"></p>
+<h2 id="3-ring-all-reduce">3. Ring All Reduce</h2>
+<p>Ring AllReduce&#x7B97;&#x6CD5;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x9636;&#x6BB5;&#xFF0C;&#x5C06;N&#x4E2A;worker&#x5206;&#x5E03;&#x5728;&#x4E00;&#x4E2A;&#x73AF;&#x4E0A;&#xFF0C;&#x5E76;&#x4E14;&#x628A;&#x6BCF;&#x4E2A;worker&#x7684;&#x6570;&#x636E;&#x5206;&#x6210;N&#x4EFD;&#x3002;</p>
+<p><img src="assets/v2-14aa773a5d2979ba877151e7d39a8f9a_720w.webp" alt="img"></p>
+<p><img src="https://pic3.zhimg.com/80/v2-0128c88e767020f310ef3c7c64b560b6_720w.webp" alt="img"></p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5177;&#x4F53;&#x770B;&#x7B2C;k&#x4E2A;worker&#xFF0C;&#x8FD9;&#x4E2A;worker&#x4F1A;&#x628A;&#x7B2C;k&#x4EFD;&#x6570;&#x636E;&#x53D1;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;worker&#xFF0C;&#x540C;&#x65F6;&#x4ECE;&#x524D;&#x4E00;&#x4E2A;worker&#x6536;&#x5230;&#x7B2C;k-1&#x4EFD;&#x6570;&#x636E;&#x3002;</p>
+<p><img src="assets/v2-77083ac124232837a4ea04f2d56540a5_720w.webp" alt="img"></p>
+<p>&#x4E4B;&#x540E;worker&#x4F1A;&#x628A;&#x6536;&#x5230;&#x7684;&#x7B2C;k-1&#x4EFD;&#x6570;&#x636E;&#x548C;&#x81EA;&#x5DF1;&#x7684;&#x7B2C;k-1&#x4EFD;&#x6570;&#x636E;&#x6574;&#x5408;&#xFF0C;&#x518D;&#x5C06;&#x6574;&#x5408;&#x7684;&#x6570;&#x636E;&#x53D1;&#x9001;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;worker&#x3002;</p>
+<p><img src="assets/v2-3f2b14d33f36d632aaf942dbae6c42e2_720w.webp" alt="img"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-a73d92550a771c7050f6d698ca4a0dff_720w.webp" alt="img"></p>
+<p>&#x4EE5;&#x6B64;&#x5FAA;&#x73AF;N&#x6B21;&#x4E4B;&#x540E;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;worker&#x90FD;&#x4F1A;&#x5305;&#x542B;&#x6700;&#x7EC8;&#x6574;&#x5408;&#x7ED3;&#x679C;&#x7684;&#x4E00;&#x4EFD;&#x3002;</p>
+<p><img src="assets/v2-a2b420d41e98170599b2812910b76979_720w.webp" alt="img"></p>
+<p>&#x7B2C;&#x4E8C;&#x9636;&#x6BB5;&#xFF0C;&#x6BCF;&#x4E2A;worker&#x5C06;&#x6574;&#x5408;&#x597D;&#x7684;&#x90E8;&#x5206;&#x53D1;&#x9001;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;worker&#x3002;worker&#x5728;&#x6536;&#x5230;&#x6570;&#x636E;&#x4E4B;&#x540E;&#x66F4;&#x65B0;&#x81EA;&#x8EAB;&#x6570;&#x636E;&#x5BF9;&#x5E94;&#x7684;&#x90E8;&#x5206;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x6BCF;&#x4E2A;worker&#x7684;&#x6570;&#x636E;&#x662F;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;S&#x7684;&#x5411;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x4E2A;Ring AllReduce&#x91CC;&#xFF0C;&#x6BCF;&#x4E2A;worker&#x53D1;&#x9001;&#x7684;&#x6570;&#x636E;&#x91CF;&#x662F;O(S)&#xFF0C;&#x548C;worker&#x7684;&#x6570;&#x91CF;N&#x65E0;&#x5173;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x907F;&#x514D;&#x4E86;&#x4E3B;&#x4ECE;&#x67B6;&#x6784;&#x4E2D;master&#x9700;&#x8981;&#x5904;&#x7406;O(S*N)&#x7684;&#x6570;&#x636E;&#x91CF;&#x800C;&#x6210;&#x4E3A;&#x7F51;&#x7EDC;&#x74F6;&#x9888;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="4-mapreduce-&#x67B6;&#x6784;">4. Map/Reduce &#x67B6;&#x6784;</h2>
+<p>&#x4E3B;&#x8981;&#x662F;&#x57FA;&#x4E8E; hadoop &#x7684;mahout &#x548C;&#x57FA;&#x4E8E;spark &#x7684;MLLib</p>
+<h2 id="5-parameter-server-&#x67B6;&#x6784;">5. Parameter Server &#x67B6;&#x6784;</h2>
+<p>&#x53C2;&#x6570;&#x670D;&#x52A1;&#x5668;&#x662F;&#x4E00;&#x79CD;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x901A;&#x7528;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x67B6;&#x6784;&#xFF0C;&#x65E0;&#x8BBA;&#x662F; google &#x7684;&#x4E0A;&#x4E00;&#x4EE3;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6846;&#x67B6; distbelief &#x548C;&#x6700;&#x65B0;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6846;&#x67B6; tensorflow&#xFF0C;&#x767E;&#x5EA6;&#x7684; paddle&#xFF0C;&#x4E9A;&#x9A6C;&#x900A;&#x7684; mxnet&#xFF0C;&#x8FD8;&#x662F; facebook &#x7684; pytorch &#x5728;&#x5206;&#x5E03;&#x5F0F;&#x8BAD;&#x7EC3;&#x4E0A;&#x90FD;&#x63D0;&#x4F9B;&#x4E86; Parameter Server&#x652F;&#x6301;</p>
+<h2 id="&#x94FE;&#x63A5;">&#x94FE;&#x63A5;</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/508056568" target="_blank">&#x3010;&#x8BBA;&#x6587;&#x7CBE;&#x8BFB;&#x3011;&#x57FA;&#x4E8E;&#x53C2;&#x6570;&#x670D;&#x52A1;&#x5668;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x5206;&#x5E03;&#x5F0F;&#x673A;&#x5668;&#x5B66;&#x4E60;</a></p>
+ 
+          </section>
+          
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+ 
+          <div class="book-footer">
+             
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+     
+    <a
+      href="集合通信.html"
+      class="
+        navigation navigation-prev
+        
+      "
+      aria-label="Previous page: 1.2 集合通信"
+    >
+      <i class="fa fa-angle-left"></i>
+    </a>
+     
+    <a
+      href="torch_distributed.html"
+      class="
+        navigation navigation-next
+        
+      "
+      aria-label="Next page: 1.4 分布式通信包 - torch.distributed"
+    >
+      <i class="fa fa-angle-right"></i>
+    </a>
+      
+  </div>
+  <script>
+    function showModal() {
+      document.getElementsByClassName("mask")[0].style.display = "block";
+      document.getElementsByClassName("donate-modal")[0].style.display =
+        "block";
+    }
+    // 切换赞赏码
+    function showDonateImg(num) {
+      let alipay = "";
+      let wxpay = ""
+      if(num){
+        wxpay = "hidden"
+      }else{
+        alipay = "hidden"
+      }
+      document.getElementById("wxpay-code").hidden = wxpay;
+      document.getElementById("alipay-code").hidden = alipay;
+      document.getElementsByName("pay-way")[num].checked = "checked";
+    }
+    function onMoseDown() {
+      if( document.getElementsByClassName("logo")[0].style.display == "none") {
+        document.getElementsByClassName("logo")[0].style.display = "block"
+        return
+      }
+      document.getElementsByClassName("logo")[0].style.display = "none";
+    }
+
+    // 关闭赞赏框
+    function closeDonateModal() {
+      document.getElementsByClassName("mask")[0].style.display = "none";
+      document.getElementsByClassName("donate-modal")[0].style.display = "none";
+    }
+
+    var gitbook = gitbook || [];
+    gitbook.push(function () {
+      gitbook.page.hasChanged({"page":{"title":"1.3 分布式架构","level":"1.2.3","depth":2,"next":{"title":"1.4 分布式通信包 - torch.distributed","level":"1.2.4","depth":2,"path":"chapter1/torch_distributed.md","ref":"chapter1/torch_distributed.md","articles":[]},"previous":{"title":"1.2 集合通信","level":"1.2.2","depth":2,"path":"chapter1/集合通信.md","ref":"chapter1/集合通信.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","back-to-top-button","theme-lou","flexible-alerts","highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider"],"color":"#4169E1","book-anchor-title":"本篇章节","copyright":{"author":"爱学习的草履虫"},"forbidCopy":false,"logo":"img/icon.gif","book-summary-title":"目录","search-placeholder":"Input Keywords to Search","copyrightLogo":"assets/copyright.png","favicon":"img/icon.gif","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"flexible-alerts":{"style":"flat","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"爱学习的草履虫","lang":"zh-cn","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeLou":{"footer":{"copyright":false}}},"title":"分布式机器学习笔记","gitbook":"*","description":"分布式机器学习笔记"},"file":{"path":"chapter1/分布式架构.md","mtime":"2023-03-20T15:08:16.824Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-20T15:08:46.022Z"},"basePath":"..","book":{"language":""}});
+    });
+  </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-lou/lou.js"></script>
+        
+    
+
+    </body>
+</html>
+

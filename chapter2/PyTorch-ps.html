@@ -1,0 +1,947 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.2 PyTorch Parameters Server · 分布式机器学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="爱学习的草履虫">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-lou/lou.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Flower联邦学习.html" />
+    
+    
+    <link rel="prev" href="单机分布式训练MINIST.html" />
+    
+
+    </head>
+    <body>
+         
+
+<div class="book">
+  <div class="header-inner">
+    <!-- LOGO -->
+    <div class="logo" onmousedown="onMoseDown()"></div>
+    <span class="title"></span>
+
+    <!-- Search -->
+    
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+
+    <!-- Nav -->
+    <ul class="header-nav">
+      
+    </ul>
+  </div>
+
+  <div class="book-summary">
+    <div class="book-summary-title">文档目录</div>
+     
+    <nav role="navigation">
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    分布式机器学习介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    一、有关通信的预备知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../chapter1/点对点通信.html">
+            
+                <a href="../chapter1/点对点通信.html">
+            
+                    
+                    1.1 点对点通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../chapter1/集合通信.html">
+            
+                <a href="../chapter1/集合通信.html">
+            
+                    
+                    1.2 集合通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../chapter1/分布式架构.html">
+            
+                <a href="../chapter1/分布式架构.html">
+            
+                    
+                    1.3 分布式架构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../chapter1/torch_distributed.html">
+            
+                <a href="../chapter1/torch_distributed.html">
+            
+                    
+                    1.4 分布式通信包 - torch.distributed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../chapter1/PyTorch进程通信.html">
+            
+                <a href="../chapter1/PyTorch进程通信.html">
+            
+                    
+                    1.5 Pytorch多进程通信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    二、分布式深度学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="单机分布式训练MINIST.html">
+            
+                <a href="单机分布式训练MINIST.html">
+            
+                    
+                    2.1 单机分布式训练神经网络案例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="PyTorch-ps.html">
+            
+                <a href="PyTorch-ps.html">
+            
+                    
+                    2.2 PyTorch Parameters Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="Flower联邦学习.html">
+            
+                <a href="Flower联邦学习.html">
+            
+                    
+                    2.3 Flower联邦学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    三、Spark分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter3/spark的安装.html">
+            
+                <a href="../chapter3/spark的安装.html">
+            
+                    
+                    3.1 spark的安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chapter3/spark单机版机器学习示例.html">
+            
+                <a href="../chapter3/spark单机版机器学习示例.html">
+            
+                    
+                    3.2 spark单机版机器学习示例
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chapter3/spark集群的搭建.html">
+            
+                <a href="../chapter3/spark集群的搭建.html">
+            
+                    
+                    3.3  spark集群的搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../chapter3/集群机器学习任务.html">
+            
+                <a href="../chapter3/集群机器学习任务.html">
+            
+                    
+                    3.4  集群机器学习任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../chapter3/Spark运行原理.html">
+            
+                <a href="../chapter3/Spark运行原理.html">
+            
+                    
+                    3.5  Spark运行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../chapter3/Spark中ml和mllib的区别.html">
+            
+                <a href="../chapter3/Spark中ml和mllib的区别.html">
+            
+                    
+                    3.6 Spark中ml和mllib的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../chapter3/Spark中Shuffle操作.html">
+            
+                <a href="../chapter3/Spark中Shuffle操作.html">
+            
+                    
+                    3.7 Spark中Shuffle操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../chapter3/Spark中的广播机制.html">
+            
+                <a href="../chapter3/Spark中的广播机制.html">
+            
+                    
+                    3.8 Spark中的广播机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    四、PMLS分布式机器学习
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter4/PMLS安装.html">
+            
+                <a href="../chapter4/PMLS安装.html">
+            
+                    
+                    4.1 PMLS安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../chapter4/PMLS单机版机器学习.html">
+            
+                <a href="../chapter4/PMLS单机版机器学习.html">
+            
+                    
+                    4.2 PMLS单机版机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../chapter4/分布式机器学习.html">
+            
+                <a href="../chapter4/分布式机器学习.html">
+            
+                    
+                    4.3 架设分布式机器学习
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    五、Pytorch on Apache Spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter5/SparkTorch的安装.html">
+            
+                <a href="../chapter5/SparkTorch的安装.html">
+            
+                    
+                    5.1 SparkTorch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter5/analytics-zoo.html">
+            
+                <a href="../chapter5/analytics-zoo.html">
+            
+                    
+                    5.2 analytics-zoo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    六、sklearn+spark
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter6/spark-sklearn.html">
+            
+                <a href="../chapter6/spark-sklearn.html">
+            
+                    
+                    6.1 spark-sklearn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter6/joblibspark.html">
+            
+                <a href="../chapter6/joblibspark.html">
+            
+                    
+                    6.2 Joblib Apache Spark Backend
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    七、Spark Security
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter7/Spark Security.html">
+            
+                <a href="../chapter7/Spark Security.html">
+            
+                    
+                    7.1 Spark Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../chapter7/Spark数据安全.html">
+            
+                <a href="../chapter7/Spark数据安全.html">
+            
+                    
+                    7.2 Spark数据安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+</nav>
+     
+  </div>
+
+  <!-- Content nav -->
+  <div class="book-anchor">
+    <div class="book-anchor-title"></div>
+
+    <div class="book-anchor-body"></div>
+  </div>
+
+  <div class="book-body">
+    
+    <div class="body-inner">
+       
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.2 PyTorch Parameters Server</a>
+    </h1>
+</div>
+
+
+
+      <div class="page-wrapper" tabindex="-1" role="main">
+        <div class="page-inner">
+          
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+          <section class="normal markdown-section">
+             <h1 id="pytorch-parameters-server">PyTorch-Parameters Server</h1>
+<p><a href="https://github.com/xbfu/PyTorch-ParameterServer.git" target="_blank">&#x4ED3;&#x5E93;</a></p>
+<h2 id="&#x4EE3;&#x7801;">&#x4EE3;&#x7801;</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> threading
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-keyword">import</span> torch
+<span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> optim
+<span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
+<span class="hljs-keyword">from</span> torch.utils.data <span class="hljs-keyword">import</span> DataLoader
+<span class="hljs-keyword">import</span> torch.distributed.rpc <span class="hljs-keyword">as</span> rpc
+<span class="hljs-keyword">from</span> torchvision <span class="hljs-keyword">import</span> transforms, datasets, models
+
+model_dict = {<span class="hljs-string">&apos;resnet18&apos;</span>: models.resnet18, <span class="hljs-string">&apos;resnet50&apos;</span>: models.resnet50, <span class="hljs-string">&apos;vgg16&apos;</span>: models.vgg16, <span class="hljs-string">&apos;alexnet&apos;</span>: models.alexnet,
+              <span class="hljs-string">&apos;googlenet&apos;</span>: models.googlenet, <span class="hljs-string">&apos;inception&apos;</span>: models.inception_v3,
+              <span class="hljs-string">&apos;densenet121&apos;</span>: models.densenet121, <span class="hljs-string">&apos;mobilenet&apos;</span>: models.mobilenet_v2}
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParameterServer</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;&quot;
+     The parameter server (PS) updates model parameters with gradients from the workers
+     and sends the updated parameters back to the workers.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, model, num_workers, lr)</span>:</span>
+        self.lock = threading.Lock()
+        self.future_model = torch.futures.Future()
+        self.num_workers = num_workers
+        <span class="hljs-comment"># initialize model parameters</span>
+        <span class="hljs-keyword">assert</span> model <span class="hljs-keyword">in</span> model_dict.keys(), \
+            f<span class="hljs-string">&apos;model {model} is not in the model list: {list(model_dict.keys())}&apos;</span>
+        self.model = model_dict[model](num_classes=<span class="hljs-number">10</span>)
+        <span class="hljs-comment"># zero gradients</span>
+        <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> self.model.parameters():
+            p.grad = torch.zeros_like(p)
+        self.optimizer = optim.SGD(self.model.parameters(), lr=lr, momentum=<span class="hljs-number">0.9</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_model</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self.model
+
+<span class="hljs-meta">    @staticmethod</span>
+<span class="hljs-meta">    @rpc.functions.async_execution</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">update_and_fetch_model</span><span class="hljs-params">(ps_rref, grads, worker_rank)</span>:</span>
+        self = ps_rref.local_value()
+        <span class="hljs-keyword">with</span> self.lock:
+            print(f<span class="hljs-string">&apos;PS updates parameters based on gradients from worker{worker_rank}&apos;</span>)
+            <span class="hljs-comment"># update model parameters</span>
+            <span class="hljs-keyword">for</span> p, g <span class="hljs-keyword">in</span> zip(self.model.parameters(), grads):
+                p.grad = g
+            self.optimizer.step()
+            self.optimizer.zero_grad()
+
+            fut = self.future_model
+
+            fut.set_result(self.model)
+            self.future_model = torch.futures.Future()
+
+        <span class="hljs-keyword">return</span> fut
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_worker</span><span class="hljs-params">(ps_rref, rank, data_dir, batch_size, num_epochs)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    A worker pulls model parameters from the PS, computes gradients on a mini-batch
+    from its data partition, and pushes the gradients to the PS.
+    &quot;&quot;&quot;</span>
+
+    <span class="hljs-comment"># prepare dataset</span>
+    normalize = transforms.Normalize(mean=[<span class="hljs-number">0.485</span>, <span class="hljs-number">0.456</span>, <span class="hljs-number">0.406</span>], std=[<span class="hljs-number">0.229</span>, <span class="hljs-number">0.224</span>, <span class="hljs-number">0.225</span>])
+    transform = transforms.Compose(
+        [transforms.RandomResizedCrop(<span class="hljs-number">224</span>), transforms.RandomHorizontalFlip(), transforms.ToTensor(), normalize])
+    train_dataset = datasets.ImageFolder(root=data_dir, transform=transform)
+    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=<span class="hljs-keyword">True</span>)
+
+    <span class="hljs-comment"># set device</span>
+    device_id = rank - <span class="hljs-number">1</span>
+    <span class="hljs-comment"># device_id = 0</span>
+    device = torch.device(f<span class="hljs-string">&quot;cuda:{device_id}&quot;</span> <span class="hljs-keyword">if</span> torch.cuda.is_available() <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;cpu&quot;</span>)
+    criterion = nn.CrossEntropyLoss()
+
+    <span class="hljs-comment"># get initial model from the PS</span>
+    m = ps_rref.rpc_sync().get_model().to(device)
+
+    print(f<span class="hljs-string">&apos;worker{rank} starts training&apos;</span>)
+    tt0 = time.time()
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(num_epochs):
+        <span class="hljs-keyword">for</span> batch_idx, (data, target) <span class="hljs-keyword">in</span> enumerate(train_loader):
+            data, target = data.to(device), target.to(device)
+            output = m(data)
+            loss = criterion(output, target)
+            loss.backward()
+
+            print(<span class="hljs-string">&quot;worker{:d} | Epoch:{:3d} | Batch: {:3d} | Loss: {:6.2f}&quot;</span>
+                  .format(rank, (i + <span class="hljs-number">1</span>), (batch_idx + <span class="hljs-number">1</span>), loss.item()))
+
+            <span class="hljs-comment"># send gradients to the PS and fetch updated model parameters</span>
+            m = rpc.rpc_sync(to=ps_rref.owner(),
+                             func=ParameterServer.update_and_fetch_model,
+                             args=(ps_rref, [p.grad <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> m.cpu().parameters()], rank)
+                             ).to(device)
+
+    tt1 = time.time()
+
+    print(<span class="hljs-string">&quot;Time: {:.2f} seconds&quot;</span>.format((tt1 - tt0)))
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    parser = argparse.ArgumentParser(description=<span class="hljs-string">&quot;Train models on Imagenette under ASGD&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--model&quot;</span>, type=str, default=<span class="hljs-string">&quot;resnet18&quot;</span>, help=<span class="hljs-string">&quot;The job&apos;s name.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--rank&quot;</span>, type=int, default=<span class="hljs-number">1</span>, help=<span class="hljs-string">&quot;Global rank of this process.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--world_size&quot;</span>, type=int, default=<span class="hljs-number">3</span>, help=<span class="hljs-string">&quot;Total number of workers.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--data_dir&quot;</span>, type=str, default=<span class="hljs-string">&quot;./imagenette2/val&quot;</span>, help=<span class="hljs-string">&quot;The location of dataset.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--master_addr&quot;</span>, type=str, default=<span class="hljs-string">&quot;localhost&quot;</span>, help=<span class="hljs-string">&quot;Address of master.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--master_port&quot;</span>, type=str, default=<span class="hljs-string">&quot;29600&quot;</span>, help=<span class="hljs-string">&quot;Port that master is listening on.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--batch_size&quot;</span>, type=int, default=<span class="hljs-number">64</span>, help=<span class="hljs-string">&quot;Batch size of each worker during training.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--lr&quot;</span>, type=float, default=<span class="hljs-number">0.01</span>, help=<span class="hljs-string">&quot;Learning rate.&quot;</span>)
+    parser.add_argument(<span class="hljs-string">&quot;--num_epochs&quot;</span>, type=int, default=<span class="hljs-number">1</span>, help=<span class="hljs-string">&quot;Number of epochs.&quot;</span>)
+
+    args = parser.parse_args()
+
+    os.environ[<span class="hljs-string">&apos;MASTER_ADDR&apos;</span>] = args.master_addr
+    os.environ[<span class="hljs-string">&apos;MASTER_PORT&apos;</span>] = args.master_port
+
+    options = rpc.TensorPipeRpcBackendOptions(num_worker_threads=<span class="hljs-number">16</span>, rpc_timeout=<span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> args.rank == <span class="hljs-number">0</span>:
+        <span class="hljs-string">&quot;&quot;&quot;
+        initialize PS and run workers
+        &quot;&quot;&quot;</span>
+        print(f<span class="hljs-string">&quot;PS{args.rank} initializing&quot;</span>)
+        rpc.init_rpc(f<span class="hljs-string">&quot;PS{args.rank}&quot;</span>, rank=args.rank, world_size=args.world_size, rpc_backend_options=options)
+        print(f<span class="hljs-string">&quot;PS{args.rank} initialized&quot;</span>)
+
+        ps_rref = rpc.RRef(ParameterServer(args.model, args.world_size, args.lr))
+
+        futs = []
+        <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, args.world_size):
+            worker = f<span class="hljs-string">&apos;worker{r}&apos;</span>
+            futs.append(rpc.rpc_async(to=worker,
+                                      func=run_worker,
+                                      args=(ps_rref, r, args.data_dir, args.batch_size, args.num_epochs)))
+
+        torch.futures.wait_all(futs)
+        print(f<span class="hljs-string">&quot;Finish training&quot;</span>)
+
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-string">&quot;&quot;&quot;
+        initialize workers
+        &quot;&quot;&quot;</span>
+        print(f<span class="hljs-string">&quot;worker{args.rank} initializing&quot;</span>)
+        rpc.init_rpc(f<span class="hljs-string">&quot;worker{args.rank}&quot;</span>, rank=args.rank, world_size=args.world_size, rpc_backend_options=options)
+        print(f<span class="hljs-string">&quot;worker{args.rank} initialized&quot;</span>)
+
+    rpc.shutdown()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    main()
+</code></pre>
+<h2 id="&#x8FD0;&#x884C;&#x7ED3;&#x679C;">&#x8FD0;&#x884C;&#x7ED3;&#x679C;</h2>
+<p><strong>PS&#x7AEF;</strong></p>
+<p><img src="assets/image-20230320203557292.png" alt="image-20230320203557292"></p>
+<p><strong>worker1&#x7AEF;</strong></p>
+<p><img src="assets/image-20230320203710223.png" alt="image-20230320203710223"></p>
+<p><strong>worker2&#x7AEF;</strong></p>
+<p><img src="assets/image-20230320203743343.png" alt="image-20230320203743343"></p>
+<h2 id="&#x94FE;&#x63A5;">&#x94FE;&#x63A5;</h2>
+<p><a href="https://www.w3cschool.cn/pytorch/pytorch-t8g53bt3.html" target="_blank">https://www.w3cschool.cn/pytorch/pytorch-t8g53bt3.html</a></p>
+ 
+          </section>
+          
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+ 
+          <div class="book-footer">
+             
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+
+     
+    <a
+      href="单机分布式训练MINIST.html"
+      class="
+        navigation navigation-prev
+        
+      "
+      aria-label="Previous page: 2.1 单机分布式训练神经网络案例"
+    >
+      <i class="fa fa-angle-left"></i>
+    </a>
+     
+    <a
+      href="Flower联邦学习.html"
+      class="
+        navigation navigation-next
+        
+      "
+      aria-label="Next page: 2.3 Flower联邦学习"
+    >
+      <i class="fa fa-angle-right"></i>
+    </a>
+      
+  </div>
+  <script>
+    function showModal() {
+      document.getElementsByClassName("mask")[0].style.display = "block";
+      document.getElementsByClassName("donate-modal")[0].style.display =
+        "block";
+    }
+    // 切换赞赏码
+    function showDonateImg(num) {
+      let alipay = "";
+      let wxpay = ""
+      if(num){
+        wxpay = "hidden"
+      }else{
+        alipay = "hidden"
+      }
+      document.getElementById("wxpay-code").hidden = wxpay;
+      document.getElementById("alipay-code").hidden = alipay;
+      document.getElementsByName("pay-way")[num].checked = "checked";
+    }
+    function onMoseDown() {
+      if( document.getElementsByClassName("logo")[0].style.display == "none") {
+        document.getElementsByClassName("logo")[0].style.display = "block"
+        return
+      }
+      document.getElementsByClassName("logo")[0].style.display = "none";
+    }
+
+    // 关闭赞赏框
+    function closeDonateModal() {
+      document.getElementsByClassName("mask")[0].style.display = "none";
+      document.getElementsByClassName("donate-modal")[0].style.display = "none";
+    }
+
+    var gitbook = gitbook || [];
+    gitbook.push(function () {
+      gitbook.page.hasChanged({"page":{"title":"2.2 PyTorch Parameters Server","level":"1.3.2","depth":2,"next":{"title":"2.3 Flower联邦学习","level":"1.3.3","depth":2,"path":"chapter2/Flower联邦学习.md","ref":"chapter2/Flower联邦学习.md","articles":[]},"previous":{"title":"2.1 单机分布式训练神经网络案例","level":"1.3.1","depth":2,"path":"chapter2/单机分布式训练MINIST.md","ref":"chapter2/单机分布式训练MINIST.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","back-to-top-button","theme-lou","flexible-alerts","highlight"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider"],"color":"#4169E1","book-anchor-title":"本篇章节","copyright":{"author":"爱学习的草履虫"},"forbidCopy":false,"logo":"img/icon.gif","book-summary-title":"目录","search-placeholder":"Input Keywords to Search","copyrightLogo":"assets/copyright.png","favicon":"img/icon.gif","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"flexible-alerts":{"style":"flat","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"爱学习的草履虫","lang":"zh-cn","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeLou":{"footer":{"copyright":false}}},"title":"分布式机器学习笔记","gitbook":"*","description":"分布式机器学习笔记"},"file":{"path":"chapter2/PyTorch-ps.md","mtime":"2023-03-20T13:18:32.302Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-20T15:08:46.022Z"},"basePath":"..","book":{"language":""}});
+    });
+  </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-lou/lou.js"></script>
+        
+    
+
+    </body>
+</html>
+
